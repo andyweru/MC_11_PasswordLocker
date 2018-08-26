@@ -7,6 +7,8 @@ class User:
     email = ''
     password = ''
 
+    Accounts = []
+
     def __init__(self, username, email, password):
         self.username = username
         self.email = email
