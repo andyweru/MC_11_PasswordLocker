@@ -29,10 +29,11 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(len(User.Users), 1)
 
-    def test_save_multiple_contact(self):
+    def test_save_multiple_users(self):
             ''' test whether multiple users can be stored'''
+
             self.new_user.add_user()
-            other_user= User("Gucci","gucci@gmail.com","password456") # new user
+            other_user= User("Gucci","gucci@gmail.com","password456")
             other_user.add_user()
             self.assertEqual(len(User.Users),2)
 
@@ -60,7 +61,7 @@ class TestCredential(unittest.TestCase):
     def tearDown(self):
         """ Runs after each credential test case"""
 
-        User.Accounts = []
+        Credential.Accounts = []
 
     def test_init(self):
         """ Test whether credential objects are initialized properly """
@@ -75,6 +76,15 @@ class TestCredential(unittest.TestCase):
         self.new_credential.add_credentials()
 
         self.assertEqual(len(Credential.Accounts), 1)
+
+    def test_save_multiple_credentials(self):
+        """ test whether multiple users can be stored """
+
+        self.new_credential.add_credentials()
+        other_credential= Credential("Twitter", "Wesh", "password123")
+        other_credential.add_credentials()
+        self.assertEqual(len(Credential.Accounts),2)
+
 
 
 if __name__ == '__main__':
