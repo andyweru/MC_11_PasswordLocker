@@ -17,3 +17,21 @@ class Credential:
         """ save new credentials to Accounts List """
 
         Credential.Accounts.append(self)
+
+    
+    @classmethod
+    def find_credential(cls,Network):
+        """
+        Method that takes in a network and returns a credential that matches that network.
+
+        Args:
+            network: platform to search for
+        Returns :
+            details of platform that matches network.
+        """
+
+        for saved_credential in cls.Accounts:
+            if saved_credential.platform == Network:
+                return saved_credential
+
+

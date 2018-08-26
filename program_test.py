@@ -85,6 +85,18 @@ class TestCredential(unittest.TestCase):
         other_credential.add_credentials()
         self.assertEqual(len(Credential.Accounts),2)
 
+    def test_find_credential(self):
+        """ test whether credential can be found by platform """
+
+        self.new_credential.add_credentials()
+        other_credential = Credential("Twitter", "Wesh", "password123")
+
+        other_credential.add_credentials()
+
+        retrieved_credential = Credential.find_credential("Twitter")
+
+        self.assertEqual(retrieved_credential.platform, other_credential.platform)
+
 
 
 if __name__ == '__main__':
