@@ -9,8 +9,6 @@ class User:
     email = ''
     password = ''
 
-    Accounts = []
-
     def __init__(self, username, email, password):
         self.username = username
         self.email = email
@@ -22,6 +20,7 @@ class User:
         """ save_contact method saves contact objects into contact_list """
 
         User.Users.append(self)
+
 
     @classmethod
     def find_user(cls,persona,secret):

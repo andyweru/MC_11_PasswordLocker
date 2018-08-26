@@ -2,7 +2,7 @@ import unittest
 from user import User
 from credential import Credential
 
-class TestProgram(unittest.TestCase):
+class TestUser(unittest.TestCase):
     """ Test class for defining test cases for program behaviors """
 
     def setUp(self):
@@ -46,6 +46,36 @@ class TestProgram(unittest.TestCase):
         retrieved_user = User.find_user("Gucci", "password456")
 
         self.assertEqual(retrieved_user.username,other_user.username)
+
+
+
+class TestCredential(unittest.TestCase):
+    """ Test class for defining test cases for credential behavior """
+
+    def setUp(self):
+        """runs before each credential test case"""
+
+        self.new_credential = Credential("Twitch", "youngWeshy", "password123")
+
+    def tearDown(self):
+        """ Runs after each credential test case"""
+
+        User.Accounts = []
+
+    def test_init(self):
+        """ Test whether credential objects are initialized properly """
+
+        self.assertEqual(self.new_credential.platform, "Twitch")
+        self.assertEqual(self.new_credential.platform_username, "youngWeshy")
+        self.assertEqual(self.new_credential.platform_password, "password123")
+
+    def test_add_credentials(self):
+        """ test whether new credential is added to Accounts list """
+
+        self.new_credential.add_credentials()
+
+        self.assertEqual(len(Credential.Accounts), 1)
+
 
 if __name__ == '__main__':
     unittest.main()
