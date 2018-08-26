@@ -1,3 +1,5 @@
+from credential import Credential
+
 class User:
     """ Class Generates new instances of Users """
 
