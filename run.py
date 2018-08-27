@@ -35,3 +35,11 @@ def display_users():
 def display_credentials():
     ''' Function that returns all the saved users '''
     return Credential.display_credentials()  
+
+def user_exist():
+    ''' Function that returns true or false if user exists '''
+    return User.user_exist(network)
+
+def credential_exist():
+    ''' Function that returns true or false if credential exists '''
+    return Credential.credential_exist(network)
