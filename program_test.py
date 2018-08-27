@@ -48,6 +48,26 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(retrieved_user.username,other_user.username)
 
+    def test_user_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the user.
+        '''
+
+        self.new_user.add_user()
+        other_user= User("Gucci","gucci@gmail.com", "password456")
+        other_user.add_user()
+
+        user_exists = User.user_exist("Gucci")
+
+        self.assertTrue(user_exists)
+
+    def test_display_all_users(self):
+        '''
+        method that returns a list of all users saved
+        '''
+
+        self.assertEqual(User.display_users(),User.Users)
+
 
 
 class TestCredential(unittest.TestCase):

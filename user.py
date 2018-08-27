@@ -36,5 +36,29 @@ class User:
         for saved_user in cls.Users:
             if saved_user.username == persona and saved_user.password == secret:
                 return saved_user
+
+
+    @classmethod
+    def user_exist(cls,persona):
+        '''
+        Method that checks if a user exists from the user list.
+        Args:
+            persona: username to search if it exists
+        Returns :
+            Boolean: True or false depending if the user exists
+        '''
+        for person in cls.Users:
+            if person.username == persona:
+                    return True
+
+        return False
     
+
+
+    @classmethod
+    def display_users(cls):
+        '''
+        method that returns the user list
+        '''
+        return cls.Users
 
