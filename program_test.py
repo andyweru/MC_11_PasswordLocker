@@ -97,6 +97,26 @@ class TestCredential(unittest.TestCase):
 
         self.assertEqual(retrieved_credential.platform, other_credential.platform)
 
+    def test_credential_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the credential.
+        '''
+
+        self.new_credential.add_credentials()
+        other_credential= Credential("Twitter", "Wesh", "password123")
+        other_credential.add_credentials()
+
+        credential_exists = Credential.credential_exist("Twitter")
+
+        self.assertTrue(credential_exists)
+
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all credentials saved
+        '''
+
+        self.assertEqual(Credential.display_credentials(),Credential.Accounts)
+
 
 
 if __name__ == '__main__':
